@@ -32,25 +32,23 @@ class CrimeDetailFragmentTest {
     }
 
     @Test
-    fun confirmCheckBox() {
-        onView(withId(R.id.crime_solved))
-            .check(matches(isDisplayed()))
+    fun testCheckBox() {
+        onView(withId(R.id.crime_solved)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun confirmEditText() {
-        onView(withId(R.id.crime_title))
-            .check(matches(isDisplayed()))
+    fun testEditText() {
+        onView(withId(R.id.crime_title)).check(matches(isDisplayed()))
     }
 
     @Test
-    fun updateCrime() {
+    fun testUpdateCrime() {
         scenario.onFragment { fragment ->
-            // Update the Crime object
+            // Update
             fragment.crime.title = "Burglary"
             fragment.crime.isSolved = true
 
-            // Verify the updates
+            // Verify
             assertEquals("Burglary", fragment.crime.title)
             assertTrue(fragment.crime.isSolved)
         }
